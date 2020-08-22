@@ -6,12 +6,14 @@ import ShareSpot from "./pages/ShareSpot";
 import Videos from "./pages/Videos";
 import News from "./pages/News";
 import Signup from "./pages/Signup";
+import Nav from "./components/Nav";
 import "./App.css";
 
 function App() {
   return (
     <Router>
       <div>
+        <Nav />
         <Switch>
           <Route exact path="/about">
             <About />
