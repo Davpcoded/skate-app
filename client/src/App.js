@@ -1,23 +1,39 @@
 import React from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import About from "./pages/About";
+import Spots from "./pages/Spots";
+import ShareSpot from "./pages/ShareSpot";
+import Videos from "./pages/Videos";
+import News from "./pages/News";
+import Signup from "./pages/Signup";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/spots">
+            <Spots />
+          </Route>
+          <Route exact path="/shareSpot">
+            <ShareSpot />
+          </Route>
+          <Route exact path="/videos">
+            <Videos />
+          </Route>
+          <Route exact path="/news">
+            <News />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
