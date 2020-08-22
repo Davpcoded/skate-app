@@ -7,6 +7,7 @@ import Videos from "./pages/Videos";
 import News from "./pages/News";
 import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Signup />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

@@ -74,29 +74,9 @@ function Nav() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
-          </Typography>
-          <Button href="/about" color="inherit">
-            About
-          </Button>
-          <Button
-            aria-controls="customized-menu"
-            aria-haspopup="true"
-            variant="contained"
-            color="primary"
-            onClick={handleClick}
-          >
-            Open Menu
-          </Button>
+          <Button href="/">Skate App</Button>
+          <Button href="/about">About</Button>
+          <Button onClick={handleClick}>Spots</Button>
           <StyledMenu
             id="customized-menu"
             anchorEl={anchorEl}
@@ -108,9 +88,34 @@ function Nav() {
               <ListItemIcon>
                 <SendIcon fontSize="small" />
               </ListItemIcon>
-              <ListItemText primary="Sent mail" />
+              <Button
+                href="/spots"
+                aria-controls="customized-menu"
+                aria-haspopup="true"
+                variant="contained"
+                color="primary"
+              >
+                All Spots
+              </Button>
+            </StyledMenuItem>
+            <StyledMenuItem>
+              <ListItemIcon>
+                <SendIcon fontSize="small" />
+              </ListItemIcon>
+              <Button
+                href="/sharespot"
+                aria-controls="customized-menu"
+                aria-haspopup="true"
+                variant="contained"
+                color="primary"
+              >
+                Share Spots
+              </Button>
             </StyledMenuItem>
           </StyledMenu>
+          <Button href="/videos">Videos</Button>
+          <Button href="/news">News</Button>
+          <Button href="/signup">Signup</Button>
         </Toolbar>
       </AppBar>
     </div>
