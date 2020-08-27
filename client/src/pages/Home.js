@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -13,6 +13,8 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -62,6 +64,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const history = useHistory();
+
+  const login = () => {
+    Axios({
+      method: "POST",
+      data: {
+        username: loginEmail,
+        password: loginPassword,
+      },
+      withCredentials: true,
+      url: "/api/",
+    }).then((res) => {
+      console.log("console log 1", res);
+      sessionStorage.setItem("User", JSON.stringify(res.data));
+      history.push("/spots");
+    });
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -86,6 +107,7 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(e) => setLoginEmail(e.target.value)}
             />
             <TextField
               variant="outlined"
@@ -97,16 +119,19 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e) => setLoginPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
-              type="submit"
+              // type="submit"
               fullWidth
               variant="contained"
               color="primary"
+              onClick={login}
+              // href="/"
               className={classes.submit}
             >
               Sign In

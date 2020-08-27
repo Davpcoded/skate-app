@@ -1,9 +1,18 @@
 const router = require("express").Router();
-/* const passport = require("passport");
-const passportLocal = require("passport-local").Strategy; */
+const passport = require("passport");
+const passportLocal = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 
 const db = require("../models");
+const { Error } = require("mongoose");
+
+router.post("/", passport.authenticate("local"), (req, res) => {
+  res.json({
+    firstName: req.user.firstName,
+    lastName: req.user.lastName,
+    id: req.user._id,
+  });
+});
 
 router.post("/signup", (req, res) => {
   db.User.findOne({ username: req.body.username }, async (err, doc) => {
