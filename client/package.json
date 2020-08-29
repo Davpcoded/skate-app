@@ -10,6 +10,7 @@
     "@reach/combobox": "^0.11.0",
     "@react-google-maps/api": "^1.9.12",
     "axios": "^0.19.2",
+    "date-fns": "^2.16.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-google-maps": "^9.4.5",
