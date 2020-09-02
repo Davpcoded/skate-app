@@ -29,8 +29,12 @@ const mapContainerStyle = {
 };
 const options = {
   styles: styles,
-  disableDefaultUI: true,
+  disableDefaultUI: false,
   zoomControl: true,
+};
+const clustererOptions = {
+  imagePath:
+    "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m", // so you must have m1.png, m2.png, m3.png, m4.png, m5.png and m6.png in that folder
 };
 const center = {
   lat: 43.6532,
@@ -85,16 +89,16 @@ export default function ShareSpot() {
         onLoad={onMapLoad}
       >
         {console.log(markers)}
-        <MarkerClusterer options={options}>
+        <MarkerClusterer options={clustererOptions}>
           {(clusterer) =>
             markers.map((marker) => (
               <Marker
                 key={`${marker.lat}-${marker.lng}`}
                 position={{ lat: marker.lat, lng: marker.lng }}
-                clusterer={clusterer}
                 onClick={() => {
                   setSelected(marker);
                 }}
+                clusterer={clusterer}
                 icon={{
                   url: `https://visualpharm.com/assets/968/Skateboard-595b40b65ba036ed117d337e.svg`,
                   origin: new window.google.maps.Point(0, 0),

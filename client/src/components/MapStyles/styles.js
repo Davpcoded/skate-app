@@ -113,4 +113,25 @@ export default [
       },
     ],
   },
+  /* {
+    featureType: "markers",
+    elementType: "geometry",
+    stylers: [
+      {
+        imagePath: "https://picsum.photos/200/300",
+      },
+    ],
+  }, */
+  /*  {
+    textColor: "white",
+    url: "path/to/mediumclusterimage.png",
+    height: 50,
+    width: 50,
+  },
+  {
+    textColor: "white",
+    url: "path/to/largeclusterimage.png",
+    height: 50,
+    width: 50,
+  }, */
 ];
