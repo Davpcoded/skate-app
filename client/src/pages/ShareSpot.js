@@ -3,6 +3,7 @@ import {
   GoogleMap,
   useLoadScript,
   Marker,
+  MarkerClusterer,
   InfoWindow,
 } from "@react-google-maps/api";
 import usePlacesAutocomplete, {
@@ -36,9 +37,9 @@ const center = {
   lng: -79.3832,
 };
 
-export default function App() {
+export default function ShareSpot() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyC8DUc5piT5BTqIsONJKHMOyT9-LLtAVwg",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
   });
   const [markers, setMarkers] = React.useState([]);
@@ -83,21 +84,27 @@ export default function App() {
         onClick={onMapClick}
         onLoad={onMapLoad}
       >
-        {markers.map((marker) => (
-          <Marker
-            key={`${marker.lat}-${marker.lng}`}
-            position={{ lat: marker.lat, lng: marker.lng }}
-            onClick={() => {
-              setSelected(marker);
-            }}
-            icon={{
-              url: `https://visualpharm.com/assets/968/Skateboard-595b40b65ba036ed117d337e.svg`,
-              origin: new window.google.maps.Point(0, 0),
-              anchor: new window.google.maps.Point(15, 15),
-              scaledSize: new window.google.maps.Size(30, 30),
-            }}
-          />
-        ))}
+        {console.log(markers)}
+        <MarkerClusterer options={options}>
+          {(clusterer) =>
+            markers.map((marker) => (
+              <Marker
+                key={`${marker.lat}-${marker.lng}`}
+                position={{ lat: marker.lat, lng: marker.lng }}
+                clusterer={clusterer}
+                onClick={() => {
+                  setSelected(marker);
+                }}
+                icon={{
+                  url: `https://visualpharm.com/assets/968/Skateboard-595b40b65ba036ed117d337e.svg`,
+                  origin: new window.google.maps.Point(0, 0),
+                  anchor: new window.google.maps.Point(15, 15),
+                  scaledSize: new window.google.maps.Size(30, 30),
+                }}
+              />
+            ))
+          }
+        </MarkerClusterer>
 
         {selected ? (
           <InfoWindow
