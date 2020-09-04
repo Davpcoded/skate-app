@@ -6,21 +6,12 @@ import {
   MarkerClusterer,
   InfoWindow,
 } from "@react-google-maps/api";
-import usePlacesAutocomplete, {
-  getGeocode,
-  getLatLng,
-} from "use-places-autocomplete";
-import {
-  Combobox,
-  ComboboxInput,
-  ComboboxPopover,
-  ComboboxList,
-  ComboboxOption,
-} from "@reach/combobox";
 import { formatRelative } from "date-fns";
 
 import "@reach/combobox/styles.css";
 import styles from "../components/MapStyles/styles";
+import Search from "../components/CustomizedInputBase";
+import Locate from "../components/GetCurrentLocation";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -37,13 +28,13 @@ const clustererOptions = {
     "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m", // so you must have m1.png, m2.png, m3.png, m4.png, m5.png and m6.png in that folder
 };
 const center = {
-  lat: 43.6532,
-  lng: -79.3832,
+  lat: 47.6061,
+  lng: -122.3321,
 };
 
 export default function ShareSpot() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyBjqKKrTcQAgF11nIBr20bkvTtN-TAWWqE",
     libraries,
   });
   const [markers, setMarkers] = React.useState([]);
@@ -88,7 +79,7 @@ export default function ShareSpot() {
         onClick={onMapClick}
         onLoad={onMapLoad}
       >
-        {console.log(markers)}
+        {/* {console.log(markers)} */}
         <MarkerClusterer options={clustererOptions}>
           {(clusterer) =>
             markers.map((marker) => (
@@ -129,84 +120,9 @@ export default function ShareSpot() {
           </InfoWindow>
         ) : null}
       </GoogleMap>
-      <Locate panTo={panTo} />
+
       <Search panTo={panTo} />
-    </div>
-  );
-}
-
-function Locate({ panTo }) {
-  return (
-    <button
-      className="locate"
-      onClick={() => {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            panTo({
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            });
-          },
-          () => null
-        );
-      }}
-    >
-      <img src="/compass.svg" alt="compass" />
-    </button>
-  );
-}
-
-function Search({ panTo }) {
-  const {
-    ready,
-    value,
-    suggestions: { status, data },
-    setValue,
-    clearSuggestions,
-  } = usePlacesAutocomplete({
-    requestOptions: {
-      location: { lat: () => 43.6532, lng: () => -79.3832 },
-      radius: 100 * 1000,
-    },
-  });
-
-  // https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest
-
-  const handleInput = (e) => {
-    setValue(e.target.value);
-  };
-
-  const handleSelect = async (address) => {
-    setValue(address, false);
-    clearSuggestions();
-
-    try {
-      const results = await getGeocode({ address });
-      const { lat, lng } = await getLatLng(results[0]);
-      panTo({ lat, lng });
-    } catch (error) {
-      console.log("😱 Error: ", error);
-    }
-  };
-
-  return (
-    <div className="search">
-      <Combobox onSelect={handleSelect}>
-        <ComboboxInput
-          value={value}
-          onChange={handleInput}
-          disabled={!ready}
-          placeholder="Search your location"
-        />
-        <ComboboxPopover>
-          <ComboboxList>
-            {status === "OK" &&
-              data.map(({ id, description }) => (
-                <ComboboxOption key={id} value={description} />
-              ))}
-          </ComboboxList>
-        </ComboboxPopover>
-      </Combobox>
+      <Locate panTo={panTo} />
     </div>
   );
 }
