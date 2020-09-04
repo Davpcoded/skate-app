@@ -43,12 +43,7 @@ export default function Search({ panTo }) {
     suggestions: { status, data },
     setValue,
     clearSuggestions,
-  } = usePlacesAutocomplete({
-    requestOptions: {
-      location: { lat: () => 43.6532, lng: () => -79.3832 },
-      radius: 100 * 1000,
-    },
-  });
+  } = usePlacesAutocomplete();
 
   // https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest
 
@@ -88,28 +83,6 @@ export default function Search({ panTo }) {
               ))}
           </ComboboxList>
         </ComboboxPopover>
-
-        <button
-          className="locate"
-          onClick={() => {
-            console.log(navigator.geolocation);
-            navigator.geolocation.getCurrentPosition(
-              (position) => {
-                console.log(position);
-                panTo({
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude,
-                });
-              },
-              () => null
-            );
-          }}
-        >
-          <img
-            src="https://visualpharm.com/assets/968/Skateboard-595b40b65ba036ed117d337e.svg"
-            alt="compass"
-          />
-        </button>
       </Combobox>
     </div>
   );
