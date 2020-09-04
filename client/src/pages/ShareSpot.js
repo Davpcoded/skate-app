@@ -12,6 +12,7 @@ import "@reach/combobox/styles.css";
 import styles from "../components/MapStyles/styles";
 import Search from "../components/CustomizedInputBase";
 import Locate from "../components/GetCurrentLocation";
+import ShareSpotForm from "../components/ShareSpotForm";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -123,6 +124,7 @@ export default function ShareSpot() {
 
       <Search panTo={panTo} />
       <Locate panTo={panTo} />
+      <ShareSpotForm />
     </div>
   );
 }
