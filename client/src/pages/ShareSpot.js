@@ -13,6 +13,7 @@ import styles from "../components/MapStyles/styles";
 import Search from "../components/CustomizedInputBase";
 import Locate from "../components/GetCurrentLocation";
 import ShareSpotForm from "../components/ShareSpotForm";
+import { getLatLng } from "use-places-autocomplete";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -53,6 +54,9 @@ export default function ShareSpot() {
   }, []);
 
   const mapRef = React.useRef();
+
+  console.log(mapRef.current);
+
   const onMapLoad = React.useCallback((map) => {
     mapRef.current = map;
   }, []);
@@ -124,7 +128,7 @@ export default function ShareSpot() {
 
       <Search panTo={panTo} />
       <Locate panTo={panTo} />
-      <ShareSpotForm />
+      <ShareSpotForm onClick={() => onMapClick()} />
     </div>
   );
 }

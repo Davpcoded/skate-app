@@ -6,19 +6,19 @@ import { makeStyles } from "@material-ui/core/styles";
 const catergories = [
   {
     value: "DOWNHILL",
-    label: "$",
+    label: "Downhill",
+  },
+  {
+    value: "FREERIDE",
+    label: "Free-Ride",
   },
   {
     value: "PARK",
     label: "Park",
   },
   {
-    value: "BTC",
-    label: "฿",
-  },
-  {
-    value: "JPY",
-    label: "¥",
+    value: "STREET",
+    label: "Street",
   },
 ];
 
@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
+
       width: "25ch",
     },
   },
@@ -42,25 +43,14 @@ export default function ShareSpotForm() {
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <div>
+        <TextField required label="Description" variant="outlined" />
+        <TextField required label="Description" variant="outlined" />
         <TextField
-          required
-          id="outlined-required"
-          label="Required"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-number"
-          label="Number"
-          type="number"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-select-currency"
           select
-          label="Select"
+          label="Park, Free-ride, etc"
           value={category}
           onChange={handleChange}
-          helperText="Please select your currency"
+          helperText="Please select category"
           variant="outlined"
         >
           {catergories.map((option) => (
