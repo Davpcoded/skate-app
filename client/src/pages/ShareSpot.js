@@ -55,8 +55,6 @@ export default function ShareSpot() {
 
   const mapRef = React.useRef();
 
-  console.log(mapRef.current);
-
   const onMapLoad = React.useCallback((map) => {
     mapRef.current = map;
   }, []);
@@ -128,7 +126,7 @@ export default function ShareSpot() {
 
       <Search panTo={panTo} />
       <Locate panTo={panTo} />
-      <ShareSpotForm onClick={() => onMapClick()} />
+      <ShareSpotForm markers={markers} />
     </div>
   );
 }

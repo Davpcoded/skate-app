@@ -32,7 +32,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ShareSpotForm() {
+export default function ShareSpotForm(markers) {
+  const currentLatLng = markers.markers;
+  console.log(currentLatLng);
   const classes = useStyles();
   const [category, setCategory] = React.useState("");
 
