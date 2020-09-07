@@ -126,7 +126,7 @@ export default function ShareSpot() {
 
       <Search panTo={panTo} />
       <Locate panTo={panTo} />
-      <ShareSpotForm markers={markers} />
+      <ShareSpotForm markers={markers[0]} />
     </div>
   );
 }

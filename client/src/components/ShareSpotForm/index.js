@@ -33,8 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ShareSpotForm(markers) {
-  const currentLatLng = markers.markers;
-  console.log(currentLatLng);
+  //console.log(markers);
   const classes = useStyles();
   const [category, setCategory] = React.useState("");
 
@@ -42,11 +41,21 @@ export default function ShareSpotForm(markers) {
     setCategory(event.target.value);
   };
 
+  const handleSelect = () => {
+    const spotLocation = [markers.markers.lat, markers.markers.lng];
+    console.log(spotLocation);
+  };
+
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <div>
         <TextField required label="Description" variant="outlined" />
-        <TextField required label="Description" variant="outlined" />
+        <TextField
+          required
+          onSelect={handleSelect}
+          label="Description"
+          variant="outlined"
+        />
         <TextField
           select
           label="Park, Free-ride, etc"
