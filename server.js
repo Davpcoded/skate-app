@@ -24,8 +24,8 @@ const apiRoutes = require("./routes/API.js");
 
 app.use("/api", apiRoutes);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+app.get("/sharespot", function (req, res) {
+  res.send("hello world");
 });
 
 // Connect to the Mongo DB
