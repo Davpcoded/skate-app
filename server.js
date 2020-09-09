@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 
-const apiRoutes = require("./routes/api.js");
+const apiRoutes = require("./routes/API.js");
 
 app.use("/api", apiRoutes);
 
