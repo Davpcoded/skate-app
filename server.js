@@ -23,7 +23,6 @@ if (process.env.NODE_ENV === "production") {
 const apiRoutes = require("./routes/API.js");
 
 app.use("/api", apiRoutes);
-app.use("/sharespot", router);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/skate-app");
