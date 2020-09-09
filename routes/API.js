@@ -6,6 +6,10 @@ const bcrypt = require("bcryptjs");
 const db = require("../models");
 const { Error } = require("mongoose");
 
+router.get("/sharespot", function (req, res) {
+  console.log(res);
+});
+
 router.post("/", passport.authenticate("local"), (req, res) => {
   res.json({
     firstName: req.user.firstName,

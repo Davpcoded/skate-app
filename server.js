@@ -21,10 +21,8 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 
 const apiRoutes = require("./routes/API.js");
-const htmlRoutes = require("./routes/HTML-Routes");
 
 app.use("/api", apiRoutes);
-app.use("/", htmlRoutes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/skate-app");
