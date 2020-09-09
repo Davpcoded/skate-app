@@ -24,6 +24,10 @@ const apiRoutes = require("./routes/API.js");
 
 app.use("/api", apiRoutes);
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/skate-app");
 
