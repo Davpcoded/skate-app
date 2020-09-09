@@ -36,14 +36,22 @@ export default function ShareSpotForm(markers) {
   //console.log(markers);
   const classes = useStyles();
   const [category, setCategory] = React.useState("");
+  const [spotLocation, setSpotLocation] = React.useState("");
 
   const handleChange = (event) => {
+    console.log(event.target);
     setCategory(event.target.value);
   };
 
-  const handleSelect = () => {
-    const spotLocation = [markers.markers.lat, markers.markers.lng];
-    console.log(spotLocation);
+  const handleSelect = (event) => {
+    setSpotLocation([markers.markers.lat, markers.markers.lng]);
+
+    const spotLat = spotLocation[0];
+    const spotLng = spotLocation[1];
+    console.log(spotLat, spotLng);
+
+    /* const spotLocation = [markers.markers.lat, markers.markers.lng];
+    console.log(spotLocation); */
   };
 
   return (
@@ -52,7 +60,8 @@ export default function ShareSpotForm(markers) {
         <TextField required label="Description" variant="outlined" />
         <TextField
           required
-          onSelect={handleSelect}
+          onClick={handleSelect}
+          value={spotLocation}
           label="Description"
           variant="outlined"
         />
