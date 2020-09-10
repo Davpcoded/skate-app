@@ -3,7 +3,7 @@ const passport = require("passport");
 const passportLocal = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 
-const db = require("../models");
+const db = require("../../models");
 const { Error } = require("mongoose");
 
 router.get("/sharespot", function (req, res) {
