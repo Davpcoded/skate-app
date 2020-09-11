@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const spotRoutes = require("./API");
 
-// Book routes
-router.use("/signup", spotRoutes);
+// spot routes
+router.use("/", spotRoutes);
 
 module.exports = router;

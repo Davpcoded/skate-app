@@ -6,8 +6,35 @@ const bcrypt = require("bcryptjs");
 const db = require("../../models");
 const { Error } = require("mongoose");
 
-router.get("/sharespot", function (req, res) {
-  console.log(res);
+router.get("/users", function (req, res) {
+  db.User.find({}, function (err, data) {
+    if (err) console.log(err);
+    else {
+      console.log(data);
+      res.send(data);
+    }
+  });
+});
+
+router.get("/spots", function (req, res) {
+  db.Spots.find({}, function (err, data) {
+    if (err) console.log(err);
+    else {
+      console.log(data);
+      res.send(data);
+    }
+  });
+});
+
+router.post("/spots", ({ body }, res) => {
+  db.Spots.create(body)
+    .then((dbUser) => {
+      res.json(dbUser);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json(err);
+    });
 });
 
 router.post("/", passport.authenticate("local"), (req, res) => {
