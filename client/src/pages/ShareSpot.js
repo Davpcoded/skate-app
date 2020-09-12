@@ -36,7 +36,7 @@ const center = {
 
 export default function ShareSpot() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBjqKKrTcQAgF11nIBr20bkvTtN-TAWWqE",
+    googleMapsApiKey: "AIzaSyD7hLiEOK8m_BNgDU1eQHjAQYhn4D-V1_M",
     libraries,
   });
   const [markers, setMarkers] = React.useState([]);

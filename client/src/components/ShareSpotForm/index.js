@@ -70,7 +70,7 @@ export default function ShareSpotForm(markers) {
   const handleDescriptionChange = (event) => {
     setSpotDescription(event.target.value);
   };
-  const handleSelect = (event) => {
+  const handleSelect = () => {
     setSpotLocation([markers.markers.lat, markers.markers.lng]);
 
     const spotLat = spotLocation[0];
