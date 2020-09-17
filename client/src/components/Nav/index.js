@@ -21,7 +21,7 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 
 import DraftsIcon from "@material-ui/icons/Drafts";
 
-const drawerWidth = 150;
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -124,9 +124,9 @@ export default function MiniDrawer() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap>
+            <Button href="/" variant="h6" noWrap>
               Spot Shredder
-            </Typography>
+            </Button>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -157,22 +157,46 @@ export default function MiniDrawer() {
               <ListItemIcon>
                 <InboxIcon />
               </ListItemIcon>
-              <ListItemText primary="Inbox" />
+              <ListItemLink href="/">
+                <ListItemText primary="Home" />
+              </ListItemLink>
             </ListItem>
+
             <ListItem button>
               <ListItemIcon>
                 <DraftsIcon />
               </ListItemIcon>
-              <ListItemText primary="Drafts" />
+              <ListItemLink href="/signup">
+                <ListItemText primary="Signup" />
+              </ListItemLink>
+            </ListItem>
+
+            <ListItem button>
+              <ListItemIcon>
+                <DraftsIcon />
+              </ListItemIcon>
+              <ListItemLink href="/spots">
+                <ListItemText primary="Spots" />
+              </ListItemLink>
+            </ListItem>
+
+            <ListItem button>
+              <ListItemIcon>
+                <DraftsIcon />
+              </ListItemIcon>
+              <ListItemLink href="/sharespot">
+                <ListItemText primary="Share Spots" />
+              </ListItemLink>
             </ListItem>
           </List>
           <Divider />
           <List component="nav" aria-label="secondary mailbox folders">
-            <ListItem button>
-              <ListItemText primary="Trash" />
-            </ListItem>
-            <ListItemLink href="#simple-list">
-              <ListItemText primary="Spam" />
+            <ListItemLink href="/videos">
+              <ListItemText primary="Videos" />
+            </ListItemLink>
+
+            <ListItemLink href="/news">
+              <ListItemText primary="News" />
             </ListItemLink>
           </List>
         </Drawer>
