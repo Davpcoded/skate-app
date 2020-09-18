@@ -10,6 +10,11 @@ import List from "@material-ui/core/List";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
+//==============icons================//
+import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
+import OndemandVideoOutlinedIcon from "@material-ui/icons/OndemandVideoOutlined";
+import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
+import AddLocationOutlinedIcon from "@material-ui/icons/AddLocationOutlined";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -17,9 +22,6 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-
-import DraftsIcon from "@material-ui/icons/Drafts";
 
 const drawerWidth = 200;
 
@@ -27,12 +29,17 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
   },
+  gutters: {
+    paddingLeft: "10px",
+  },
+
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    backgroundColor: "#4a6b3d",
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -153,46 +160,46 @@ export default function MiniDrawer() {
           </div>
           <Divider />
           <List component="nav" aria-label="main mailbox folders">
-            <ListItem button>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
+            <ListItem className={classes.gutters} button>
               <ListItemLink href="/">
+                <ListItemIcon>
+                  <HomeOutlinedIcon />
+                </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItemLink>
             </ListItem>
 
-            <ListItem button>
-              <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon>
-              <ListItemLink href="/signup">
-                <ListItemText primary="Signup" />
+            <ListItem className={classes.gutters} button>
+              <ListItemLink href="/videos">
+                <ListItemIcon>
+                  <OndemandVideoOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Videos" />
               </ListItemLink>
             </ListItem>
 
-            <ListItem button>
-              <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon>
+            <ListItem className={classes.gutters} button>
               <ListItemLink href="/spots">
+                <ListItemIcon>
+                  <RoomOutlinedIcon />
+                </ListItemIcon>
                 <ListItemText primary="Spots" />
               </ListItemLink>
             </ListItem>
 
-            <ListItem button>
-              <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon>
+            <ListItem className={classes.gutters} button>
               <ListItemLink href="/sharespot">
-                <ListItemText primary="Share Spots" />
+                <ListItemIcon>
+                  <AddLocationOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Add Spots" />
               </ListItemLink>
             </ListItem>
           </List>
           <Divider />
           <List component="nav" aria-label="secondary mailbox folders">
-            <ListItemLink href="/videos">
-              <ListItemText primary="Videos" />
+            <ListItemLink href="/signup">
+              <ListItemText primary="Signup" />
             </ListItemLink>
 
             <ListItemLink href="/news">
