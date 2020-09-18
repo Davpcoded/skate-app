@@ -35,7 +35,7 @@ const center = {
 
 export default function Spots() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyD7hLiEOK8m_BNgDU1eQHjAQYhn4D-V1_M",
   });
 
   const [spots, setSpots] = React.useState([]);

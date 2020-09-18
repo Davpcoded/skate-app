@@ -15,6 +15,7 @@ import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
+import CssTextField from "../components/CssTextField";
 
 function Copyright() {
   return (
@@ -32,6 +33,7 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
+    marginTop: "64px",
   },
   image: {
     backgroundImage:
@@ -97,9 +99,9 @@ export default function SignInSide() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+
           <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
+            <CssTextField
               margin="normal"
               required
               fullWidth
@@ -110,8 +112,7 @@ export default function SignInSide() {
               autoFocus
               onChange={(e) => setLoginEmail(e.target.value)}
             />
-            <TextField
-              variant="outlined"
+            <CssTextField
               margin="normal"
               required
               fullWidth

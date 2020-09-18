@@ -111,103 +111,101 @@ export default function MiniDrawer() {
 
   return (
     <div className={classes.root}>
-      <Container>
-        <CssBaseline />
-        <AppBar
-          position="fixed"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
-        >
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, {
-                [classes.hide]: open,
-              })}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Button href="/" variant="h6" noWrap>
-              Spot Shredder
-            </Button>
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          variant="permanent"
-          className={clsx(classes.drawer, {
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, {
+              [classes.hide]: open,
+            })}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Button color="inherit" href="/" variant="h6" noWrap>
+            Spot Shredder
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        variant="permanent"
+        className={clsx(classes.drawer, {
+          [classes.drawerOpen]: open,
+          [classes.drawerClose]: !open,
+        })}
+        classes={{
+          paper: clsx({
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
-          })}
-          classes={{
-            paper: clsx({
-              [classes.drawerOpen]: open,
-              [classes.drawerClose]: !open,
-            }),
-          }}
-        >
-          <div className={classes.toolbar}>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === "rtl" ? (
-                <ChevronRightIcon />
-              ) : (
-                <ChevronLeftIcon />
-              )}
-            </IconButton>
-          </div>
-          <Divider />
-          <List component="nav" aria-label="main mailbox folders">
-            <ListItem className={classes.gutters} button>
-              <ListItemLink href="/">
-                <ListItemIcon>
-                  <HomeOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Home" />
-              </ListItemLink>
-            </ListItem>
-
-            <ListItem className={classes.gutters} button>
-              <ListItemLink href="/videos">
-                <ListItemIcon>
-                  <OndemandVideoOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Videos" />
-              </ListItemLink>
-            </ListItem>
-
-            <ListItem className={classes.gutters} button>
-              <ListItemLink href="/spots">
-                <ListItemIcon>
-                  <RoomOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Spots" />
-              </ListItemLink>
-            </ListItem>
-
-            <ListItem className={classes.gutters} button>
-              <ListItemLink href="/sharespot">
-                <ListItemIcon>
-                  <AddLocationOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Add Spots" />
-              </ListItemLink>
-            </ListItem>
-          </List>
-          <Divider />
-          <List component="nav" aria-label="secondary mailbox folders">
-            <ListItemLink href="/signup">
-              <ListItemText primary="Signup" />
+          }),
+        }}
+      >
+        <div className={classes.toolbar}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === "rtl" ? (
+              <ChevronRightIcon />
+            ) : (
+              <ChevronLeftIcon />
+            )}
+          </IconButton>
+        </div>
+        <Divider />
+        <List component="nav" aria-label="main mailbox folders">
+          <ListItem className={classes.gutters} button>
+            <ListItemLink href="/">
+              <ListItemIcon>
+                <HomeOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
             </ListItemLink>
+          </ListItem>
 
-            <ListItemLink href="/news">
-              <ListItemText primary="News" />
+          <ListItem className={classes.gutters} button>
+            <ListItemLink href="/videos">
+              <ListItemIcon>
+                <OndemandVideoOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Videos" />
             </ListItemLink>
-          </List>
-        </Drawer>
-      </Container>
+          </ListItem>
+
+          <ListItem className={classes.gutters} button>
+            <ListItemLink href="/spots">
+              <ListItemIcon>
+                <RoomOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Spots" />
+            </ListItemLink>
+          </ListItem>
+
+          <ListItem className={classes.gutters} button>
+            <ListItemLink href="/sharespot">
+              <ListItemIcon>
+                <AddLocationOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Add Spots" />
+            </ListItemLink>
+          </ListItem>
+        </List>
+        <Divider />
+        <List component="nav" aria-label="secondary mailbox folders">
+          <ListItemLink href="/signup">
+            <ListItemText primary="Signup" />
+          </ListItemLink>
+
+          <ListItemLink href="/news">
+            <ListItemText primary="News" />
+          </ListItemLink>
+        </List>
+      </Drawer>
     </div>
   );
 }
