@@ -14,11 +14,11 @@ code {
 
 .search {
   position: absolute;
-  top: 1rem;
+  top: 3.5rem;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 400px;
+  max-width: 240px;
   z-index: 10;
 }
 

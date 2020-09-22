@@ -8,7 +8,6 @@ import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Box from "@material-ui/core/Box";
@@ -21,8 +20,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="/">
+        Spot-Shredder
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -54,14 +53,16 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#4a6b3d",
   },
   form: {
-    width: "50%", // Fix IE 11 issue.
+    width: "80%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#4a6b3d",
+    color: "white",
   },
 }));
 
@@ -124,14 +125,13 @@ export default function SignInSide() {
               onChange={(e) => setLoginPassword(e.target.value)}
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" color="default" />}
               label="Remember me"
             />
             <Button
               // type="submit"
               fullWidth
               variant="contained"
-              color="primary"
               onClick={login}
               // href="/"
               className={classes.submit}
@@ -140,12 +140,12 @@ export default function SignInSide() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="#" color="textSecondary" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signup" color="textSecondary" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

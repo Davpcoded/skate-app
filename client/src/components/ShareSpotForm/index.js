@@ -4,6 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
+import CssTextField from "../CssTextField";
 import Axios from "axios";
 
 const catergories = [
@@ -81,35 +82,32 @@ export default function ShareSpotForm(markers) {
     <form className={classes.root} noValidate autoComplete="off">
       <div>
         <Container component="main" maxWidth="xs">
-          <TextField
+          <CssTextField
             required
             onChange={handleDescriptionChange}
             value={spotDescription}
             label="Description"
-            variant="outlined"
           />
           {console.log(spotDescription)}
-          <TextField
+          <CssTextField
             required
             onClick={handleSelect}
             value={spotLocation}
             label="Description"
-            variant="outlined"
           />
-          <TextField
+          <CssTextField
             select
             label="Park, Free-ride, etc"
             value={category}
             onChange={handleCategoryChange}
             helperText="Please select category"
-            variant="outlined"
           >
             {catergories.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
             ))}
-          </TextField>
+          </CssTextField>
           <Button
             type="submit"
             fullWidth

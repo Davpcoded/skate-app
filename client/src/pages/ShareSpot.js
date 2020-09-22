@@ -7,7 +7,8 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 import { formatRelative } from "date-fns";
-
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 import "@reach/combobox/styles.css";
 import styles from "../components/MapStyles/styles";
 import Search from "../components/CustomizedInputBase";
@@ -18,7 +19,7 @@ import { getLatLng } from "use-places-autocomplete";
 const libraries = ["places"];
 const mapContainerStyle = {
   height: "100vh",
-  width: "100vw",
+  width: "95vw",
 };
 const options = {
   styles: styles,
@@ -33,6 +34,12 @@ const center = {
   lat: 47.6061,
   lng: -122.3321,
 };
+const useStyles = makeStyles(() => ({
+  root: {
+    marginLeft: "36px",
+    marginTop: "60px",
+  },
+}));
 
 export default function ShareSpot() {
   const { isLoaded, loadError } = useLoadScript({
@@ -41,6 +48,7 @@ export default function ShareSpot() {
   });
   const [markers, setMarkers] = React.useState([]);
   const [selected, setSelected] = React.useState(null);
+  const classes = useStyles();
 
   const onMapClick = React.useCallback((e) => {
     setMarkers((current) => [
@@ -69,63 +77,60 @@ export default function ShareSpot() {
 
   return (
     <div>
-      <h1>
-        Skate-app <span role="img" aria-label="skateboard"></span>
-      </h1>
+      <Container className={classes.root}>
+        <GoogleMap
+          id="map"
+          mapContainerStyle={mapContainerStyle}
+          zoom={8}
+          center={center}
+          options={options}
+          onClick={onMapClick}
+          onLoad={onMapLoad}
+        >
+          {/* {console.log(markers)} */}
+          <MarkerClusterer options={clustererOptions}>
+            {(clusterer) =>
+              markers.map((marker) => (
+                <Marker
+                  key={`${marker.lat}-${marker.lng}`}
+                  position={{ lat: marker.lat, lng: marker.lng }}
+                  onClick={() => {
+                    setSelected(marker);
+                  }}
+                  clusterer={clusterer}
+                  icon={{
+                    url: `https://visualpharm.com/assets/968/Skateboard-595b40b65ba036ed117d337e.svg`,
+                    origin: new window.google.maps.Point(0, 0),
+                    anchor: new window.google.maps.Point(15, 15),
+                    scaledSize: new window.google.maps.Size(30, 30),
+                  }}
+                />
+              ))
+            }
+          </MarkerClusterer>
 
-      <GoogleMap
-        id="map"
-        mapContainerStyle={mapContainerStyle}
-        zoom={8}
-        center={center}
-        options={options}
-        onClick={onMapClick}
-        onLoad={onMapLoad}
-      >
-        {/* {console.log(markers)} */}
-        <MarkerClusterer options={clustererOptions}>
-          {(clusterer) =>
-            markers.map((marker) => (
-              <Marker
-                key={`${marker.lat}-${marker.lng}`}
-                position={{ lat: marker.lat, lng: marker.lng }}
-                onClick={() => {
-                  setSelected(marker);
-                }}
-                clusterer={clusterer}
-                icon={{
-                  url: `https://visualpharm.com/assets/968/Skateboard-595b40b65ba036ed117d337e.svg`,
-                  origin: new window.google.maps.Point(0, 0),
-                  anchor: new window.google.maps.Point(15, 15),
-                  scaledSize: new window.google.maps.Size(30, 30),
-                }}
-              />
-            ))
-          }
-        </MarkerClusterer>
-
-        {selected ? (
-          <InfoWindow
-            position={{ lat: selected.lat, lng: selected.lng }}
-            onCloseClick={() => {
-              setSelected(null);
-            }}
-          >
-            <div>
-              <h2>
-                <span role="img" aria-label="bear">
-                  🐻
-                </span>{" "}
-                Alert
-              </h2>
-              <p>Spotted {formatRelative(selected.time, new Date())}</p>
-            </div>
-          </InfoWindow>
-        ) : null}
-      </GoogleMap>
-
-      <Search panTo={panTo} />
-      <Locate panTo={panTo} />
+          {selected ? (
+            <InfoWindow
+              position={{ lat: selected.lat, lng: selected.lng }}
+              onCloseClick={() => {
+                setSelected(null);
+              }}
+            >
+              <div>
+                <h2>
+                  <span role="img" aria-label="bear">
+                    🐻
+                  </span>{" "}
+                  Alert
+                </h2>
+                <p>Spotted {formatRelative(selected.time, new Date())}</p>
+              </div>
+            </InfoWindow>
+          ) : null}
+          <Search panTo={panTo} />
+          <Locate panTo={panTo} />
+        </GoogleMap>
+      </Container>
       <ShareSpotForm markers={markers[0]} />
     </div>
   );
