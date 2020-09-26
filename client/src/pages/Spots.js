@@ -19,7 +19,7 @@ const options = {
 };
 const mapContainerStyle = {
   height: "100vh",
-  width: "95vw",
+  width: "94vw",
 };
 const clustererOptions = {
   imagePath:
@@ -31,7 +31,7 @@ const center = {
 };
 const useStyles = makeStyles(() => ({
   root: {
-    marginLeft: "36px",
+    marginLeft: "50px",
     marginTop: "60px",
   },
 }));

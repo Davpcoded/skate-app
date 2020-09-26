@@ -62,12 +62,16 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerOpen: {
     width: drawerWidth,
+    color: "white",
+    backgroundColor: "transparent",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
   drawerClose: {
+    backgroundColor: "transparent",
+    color: "white",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -79,21 +83,26 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   toolbar: {
+    backgroundColor: "#4a6b3d",
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
+    color: "white",
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  toolbarBtn: {
+    color: "white",
+  },
 }));
 
 function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
+  return <ListItem classes="classes" button component="a" {...props} />;
 }
 
 export default function MiniDrawer() {
@@ -149,7 +158,7 @@ export default function MiniDrawer() {
         }}
       >
         <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton style={{ color: "white" }} onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
             ) : (
@@ -161,7 +170,7 @@ export default function MiniDrawer() {
         <List component="nav" aria-label="main mailbox folders">
           <ListItem className={classes.gutters} button>
             <ListItemLink href="/">
-              <ListItemIcon>
+              <ListItemIcon className={classes.toolbarBtn}>
                 <HomeOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="Home" />
@@ -170,7 +179,7 @@ export default function MiniDrawer() {
 
           <ListItem className={classes.gutters} button>
             <ListItemLink href="/videos">
-              <ListItemIcon>
+              <ListItemIcon className={classes.toolbarBtn}>
                 <OndemandVideoOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="Videos" />
@@ -179,7 +188,7 @@ export default function MiniDrawer() {
 
           <ListItem className={classes.gutters} button>
             <ListItemLink href="/spots">
-              <ListItemIcon>
+              <ListItemIcon className={classes.toolbarBtn}>
                 <RoomOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="Spots" />
@@ -188,7 +197,7 @@ export default function MiniDrawer() {
 
           <ListItem className={classes.gutters} button>
             <ListItemLink href="/sharespot">
-              <ListItemIcon>
+              <ListItemIcon className={classes.toolbarBtn}>
                 <AddLocationOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="Add Spots" />

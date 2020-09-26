@@ -19,7 +19,7 @@ import { getLatLng } from "use-places-autocomplete";
 const libraries = ["places"];
 const mapContainerStyle = {
   height: "100vh",
-  width: "95vw",
+  width: "94vw",
 };
 const options = {
   styles: styles,
@@ -36,7 +36,7 @@ const center = {
 };
 const useStyles = makeStyles(() => ({
   root: {
-    marginLeft: "36px",
+    marginLeft: "50px",
     marginTop: "60px",
   },
 }));

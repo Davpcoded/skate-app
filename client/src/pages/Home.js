@@ -1,6 +1,5 @@
 import React from "react";
-import API from "../utils/API";
-import PropTypes from "prop-types";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -16,6 +15,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import CssTextField from "../components/CssTextField";
+import AboutSection from "../components/AboutSection";
 
 function Copyright() {
   return (
@@ -30,14 +30,13 @@ function Copyright() {
   );
 }
 
-const srcPath = "https://farm4.staticflickr.com/3631/3394852141_6e040acd05.jpg";
-
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
     marginTop: "64px",
   },
   image: {
+    backgroundImage: "url(https://source.unsplash.com/collection/19745035)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -72,17 +71,6 @@ export default function SignInSide() {
   const [loginEmail, setLoginEmail] = React.useState("");
   const [loginPassword, setLoginPassword] = React.useState("");
   const history = useHistory();
-  const [photo, getPhoto] = React.useState([]);
-
-  React.useEffect(() => {
-    loadPhotos();
-  }, []);
-
-  function loadPhotos() {
-    API.getPhotos()
-      .then((res) => getPhoto(res.data))
-      .catch((err) => console.log(err));
-  }
 
   const login = () => {
     Axios({
@@ -103,9 +91,7 @@ export default function SignInSide() {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image}>
-        <img src={srcPath} />
-      </Grid>
+      <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
@@ -143,11 +129,9 @@ export default function SignInSide() {
               label="Remember me"
             />
             <Button
-              // type="submit"
               fullWidth
               variant="contained"
               onClick={login}
-              // href="/"
               className={classes.submit}
             >
               Sign In
@@ -170,8 +154,7 @@ export default function SignInSide() {
           </form>
         </div>
       </Grid>
-
-      {/* <img src={srcPath} /> */}
+      <AboutSection />
     </Grid>
   );
 }

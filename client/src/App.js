@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import About from "./pages/About";
 import Spots from "./pages/Spots";
 import ShareSpot from "./pages/ShareSpot";
 import Videos from "./pages/Videos";
@@ -19,9 +18,6 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
-          </Route>
-          <Route exact path="/about">
-            <About />
           </Route>
           <Route exact path="/spots">
             <Spots />
