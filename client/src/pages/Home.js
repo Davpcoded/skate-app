@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import API from "../utils/API";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -29,14 +30,14 @@ function Copyright() {
   );
 }
 
+const srcPath = "https://farm4.staticflickr.com/3631/3394852141_6e040acd05.jpg";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
     marginTop: "64px",
   },
   image: {
-    backgroundImage:
-      "url(https://images.unsplash.com/photo-1597336356547-a2b9b3429bc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=100)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -68,9 +69,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  const [loginEmail, setLoginEmail] = React.useState("");
+  const [loginPassword, setLoginPassword] = React.useState("");
   const history = useHistory();
+  const [photo, getPhoto] = React.useState([]);
+
+  React.useEffect(() => {
+    loadPhotos();
+  }, []);
+
+  function loadPhotos() {
+    API.getPhotos()
+      .then((res) => getPhoto(res.data))
+      .catch((err) => console.log(err));
+  }
 
   const login = () => {
     Axios({
@@ -91,7 +103,9 @@ export default function SignInSide() {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid item xs={false} sm={4} md={7} className={classes.image}>
+        <img src={srcPath} />
+      </Grid>
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
@@ -156,6 +170,8 @@ export default function SignInSide() {
           </form>
         </div>
       </Grid>
+
+      {/* <img src={srcPath} /> */}
     </Grid>
   );
 }
