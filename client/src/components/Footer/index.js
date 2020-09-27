@@ -29,12 +29,11 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   footer: {
-    padding: theme.spacing(3, 2),
-    marginTop: "auto",
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[200]
-        : theme.palette.grey[800],
+    top: "100vh",
+    bottom: "100px",
+    padding: "24px 16px",
+    position: "relative",
+    backgroundColor: "#4a6b3d",
   },
 }));
 

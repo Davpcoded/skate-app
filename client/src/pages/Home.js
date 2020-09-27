@@ -14,12 +14,12 @@ import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
-import CssTextField from "../components/CssTextField";
-import AboutSection from "../components/AboutSection";
+import TextField from "@material-ui/core/TextField";
+import AboutSection from "../components/AboutBanner";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" style={{ color: "white" }} align="center">
       {"Copyright © "}
       <Link color="inherit" href="/">
         Spot-Shredder
@@ -32,8 +32,8 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
-    marginTop: "64px",
+    height: "573px",
+    marginTop: "8vh",
   },
   image: {
     backgroundImage: "url(https://source.unsplash.com/collection/19745035)",
@@ -45,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     backgroundPosition: "center",
   },
+  gridColor: {
+    backgroundColor: "#4a6b3d",
+  },
+
   paper: {
     margin: theme.spacing(8, 4),
     display: "flex",
@@ -101,17 +105,26 @@ export default function SignInSide() {
         square
         className={classes.image}
       />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={5}
+        className={classes.gridColor}
+        component={Paper}
+        elevation={6}
+        square
+      >
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography style={{ color: "white" }} component="h1" variant="h5">
             Sign in
           </Typography>
 
           <form className={classes.form} noValidate>
-            <CssTextField
+            <TextField
               margin="normal"
               required
               fullWidth
@@ -122,7 +135,7 @@ export default function SignInSide() {
               autoFocus
               onChange={(e) => setLoginEmail(e.target.value)}
             />
-            <CssTextField
+            <TextField
               margin="normal"
               required
               fullWidth
@@ -134,7 +147,8 @@ export default function SignInSide() {
               onChange={(e) => setLoginPassword(e.target.value)}
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="default" />}
+              style={{ color: "white" }}
+              control={<Checkbox value="remember" style={{ color: "white" }} />}
               label="Remember me"
             />
             <Button
@@ -147,12 +161,12 @@ export default function SignInSide() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" color="textSecondary" variant="body2">
+                <Link href="#" style={{ color: "white" }} variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/signup" color="textSecondary" variant="body2">
+                <Link href="/signup" style={{ color: "white" }} variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

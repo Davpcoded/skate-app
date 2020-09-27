@@ -10,8 +10,15 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     marginTop: "8px",
   },
-  image: {
-    backgroundImage: "url(https://source.unsplash.com/NDlg6cW1Yzk)",
+  banner1: {
+    backgroundImage: "url(https://source.unsplash.com/hCrmrvERbmk)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    height: "50vh",
+  },
+  banner2: {
+    backgroundImage: "url(https://source.unsplash.com/sTTgqmXye8s)",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -28,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bannerText: {
     color: "white",
-    width: "350px",
+    width: "fit-content",
     borderRadius: "0.5rem",
     marginLeft: "auto",
     marginRight: "auto",
@@ -40,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AboutSection() {
+export default function AboutBanner() {
   const classes = useStyles();
   return (
     <Grid container className={classes.root}>
@@ -51,7 +58,7 @@ export default function AboutSection() {
         elevation={6}
         square
         component={Paper}
-        className={classes.image}
+        className={classes.banner1}
       >
         <Typography
           xs={12}
@@ -59,7 +66,25 @@ export default function AboutSection() {
           variant="h4"
           component="h4"
         >
-          Skate Nearby spots
+          Skate Nearby Spots
+        </Typography>
+      </Grid>
+
+      <Grid
+        item
+        xs={12}
+        elevation={6}
+        square
+        component={Paper}
+        className={classes.banner2}
+      >
+        <Typography
+          xs={12}
+          className={classes.bannerText}
+          variant="h4"
+          component="h4"
+        >
+          Explore Your City
         </Typography>
       </Grid>
     </Grid>
