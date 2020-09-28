@@ -48,7 +48,17 @@ const useStyles = makeStyles((theme) => ({
   gridColor: {
     backgroundColor: "#4a6b3d",
   },
-
+  inputColor: {
+    "& .MuiInput-underline:after": {
+      borderBottom: "2px solid #ffffff",
+    },
+    "& .MuiInputBase-root": {
+      color: "white",
+    },
+    "& .MuiFormLabel-root.Mui-focused": {
+      color: "white",
+    },
+  },
   paper: {
     margin: theme.spacing(8, 4),
     display: "flex",
@@ -123,20 +133,21 @@ export default function SignInSide() {
             Sign in
           </Typography>
 
-          <form className={classes.form} noValidate>
+          <form style={{ color: "white" }} className={classes.form} noValidate>
             <TextField
               margin="normal"
+              className={classes.inputColor}
               required
               fullWidth
               id="email"
               label="Email Address"
               name="email"
               autoComplete="email"
-              autoFocus
               onChange={(e) => setLoginEmail(e.target.value)}
             />
             <TextField
               margin="normal"
+              className={classes.inputColor}
               required
               fullWidth
               name="password"
