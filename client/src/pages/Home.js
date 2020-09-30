@@ -33,7 +33,7 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "573px",
-    marginTop: "8vh",
+    marginTop: "7vh",
   },
   image: {
     backgroundImage: "url(https://source.unsplash.com/collection/19745035)",
@@ -154,7 +154,7 @@ export default function SignInSide() {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
+              autoComplete="off"
               onChange={(e) => setLoginPassword(e.target.value)}
             />
             <FormControlLabel
