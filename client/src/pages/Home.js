@@ -19,19 +19,6 @@ import AboutSection from "../components/AboutBanner";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" style={{ color: "white" }} align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        Spot-Shredder
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "573px",
@@ -48,9 +35,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
   },
   gridColor: {
-    backgroundColor: "transparent",
+    backgroundColor: "#dbdbdb",
     marginLeft: "auto",
     marginRight: "auto",
+    borderRadius: ".5rem",
   },
   inputColor: {
     "& .MuiInput-underline:after": {
@@ -71,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "#4a6b3d",
+    backgroundColor: "transparent",
   },
   form: {
     width: "80%", // Fix IE 11 issue.
@@ -79,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "#4a6b3d",
+    backgroundColor: "transparent",
     color: "white",
   },
 }));
@@ -203,9 +191,7 @@ export default function SignInSide() {
                     </Link>
                   </Grid>
                 </Grid>
-                <Box mt={5}>
-                  <Copyright />
-                </Box>
+                <Box mt={5} />
               </form>
             </div>
           </Grid>
