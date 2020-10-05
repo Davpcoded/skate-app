@@ -6,14 +6,12 @@ import Videos from "./pages/Videos";
 import News from "./pages/News";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
   return (
     <Router>
-      <div style={{ backgroundColor: "#4a6b3d" }}>
+      <div>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -34,7 +32,6 @@ function App() {
             <Signup />
           </Route>
         </Switch>
-        <Footer />
       </div>
     </Router>
   );

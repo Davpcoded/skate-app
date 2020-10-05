@@ -44,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
   },
   navIcon: {
     marginRight: theme.spacing(3),
+    [theme.breakpoints.down("sm")]: {
+      marginRight: theme.spacing(0),
+      padding: "0",
+    },
     color: "white",
   },
   title: {
@@ -58,15 +62,15 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar style={{ background: "transparent" }} position="static">
         <Toolbar>
-          <Button href="/sharespot">
+          <Button className={classes.navIcon} href="/sharespot">
             <InstagramIcon className={classes.navIcon} />
           </Button>
-          <Button>
+          <Button className={classes.navIcon}>
             <FacebookIcon className={classes.navIcon} />
           </Button>
-          <Button>
+          <Button className={classes.navIcon}>
             <YouTubeIcon className={classes.navIcon} />
           </Button>
 

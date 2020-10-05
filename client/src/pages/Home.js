@@ -17,6 +17,7 @@ import { useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import AboutSection from "../components/AboutBanner";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 function Copyright() {
   return (
@@ -34,11 +35,11 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "573px",
-    marginTop: "7vh",
   },
   image: {
-    backgroundImage: "url(https://source.unsplash.com/collection/19745035)",
+    backgroundImage: "url(https://source.unsplash.com/Sj87XsPs4b4)",
     backgroundRepeat: "no-repeat",
+    height: "100vh",
     backgroundColor:
       theme.palette.type === "light"
         ? theme.palette.grey[50]
@@ -47,7 +48,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
   },
   gridColor: {
-    backgroundColor: "#4a6b3d",
+    backgroundColor: "transparent",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   inputColor: {
     "& .MuiInput-underline:after": {
@@ -105,105 +108,112 @@ export default function SignInSide() {
 
   return (
     <Grid>
-      <Nav />
       <Grid container component="main" className={classes.root}>
         <CssBaseline />
 
         <Grid
           item
           xs={false}
-          sm={4}
-          md={7}
+          sm={12}
+          md={12}
           component={Paper}
           elevation={6}
           square
           className={classes.image}
-        />
-        <Grid
-          item
-          xs={12}
-          sm={8}
-          md={5}
-          className={classes.gridColor}
-          component={Paper}
-          elevation={6}
-          square
         >
-          <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography style={{ color: "white" }} component="h1" variant="h5">
-              Sign in
-            </Typography>
-
-            <form
-              style={{ color: "white" }}
-              className={classes.form}
-              noValidate
-            >
-              <TextField
-                margin="normal"
-                className={classes.inputColor}
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                onChange={(e) => setLoginEmail(e.target.value)}
-              />
-              <TextField
-                margin="normal"
-                className={classes.inputColor}
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="off"
-                onChange={(e) => setLoginPassword(e.target.value)}
-              />
-              <FormControlLabel
+          <Nav />
+          <Grid
+            item
+            xs={12}
+            sm={8}
+            md={5}
+            className={classes.gridColor}
+            component={Paper}
+            elevation={6}
+            square
+          >
+            <div className={classes.paper}>
+              <Avatar className={classes.avatar}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography
                 style={{ color: "white" }}
-                control={
-                  <Checkbox value="remember" style={{ color: "white" }} />
-                }
-                label="Remember me"
-              />
-              <Button
-                fullWidth
-                variant="contained"
-                onClick={login}
-                className={classes.submit}
+                component="h1"
+                variant="h5"
               >
-                Sign In
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" style={{ color: "white" }} variant="body2">
-                    Forgot password?
-                  </Link>
+                Sign in
+              </Typography>
+
+              <form
+                style={{ color: "white" }}
+                className={classes.form}
+                noValidate
+              >
+                <TextField
+                  margin="normal"
+                  className={classes.inputColor}
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  onChange={(e) => setLoginEmail(e.target.value)}
+                />
+                <TextField
+                  margin="normal"
+                  className={classes.inputColor}
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="off"
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                />
+                <FormControlLabel
+                  style={{ color: "white" }}
+                  control={
+                    <Checkbox value="remember" style={{ color: "white" }} />
+                  }
+                  label="Remember me"
+                />
+                <Button
+                  fullWidth
+                  variant="contained"
+                  onClick={login}
+                  className={classes.submit}
+                >
+                  Sign In
+                </Button>
+                <Grid container>
+                  <Grid item xs>
+                    <Link href="#" style={{ color: "white" }} variant="body2">
+                      Forgot password?
+                    </Link>
+                  </Grid>
+                  <Grid item>
+                    <Link
+                      href="/signup"
+                      style={{ color: "white" }}
+                      variant="body2"
+                    >
+                      {"Don't have an account? Sign Up"}
+                    </Link>
+                  </Grid>
                 </Grid>
-                <Grid item>
-                  <Link
-                    href="/signup"
-                    style={{ color: "white" }}
-                    variant="body2"
-                  >
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
-              <Box mt={5}>
-                <Copyright />
-              </Box>
-            </form>
-          </div>
+                <Box mt={5}>
+                  <Copyright />
+                </Box>
+              </form>
+            </div>
+          </Grid>
         </Grid>
+
         <AboutSection />
       </Grid>
+      <Footer />
     </Grid>
   );
 }
