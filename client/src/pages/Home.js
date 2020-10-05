@@ -21,7 +21,7 @@ import Footer from "../components/Footer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "573px",
+    height: "100vh",
   },
   image: {
     backgroundImage: "url(https://source.unsplash.com/Sj87XsPs4b4)",
@@ -42,13 +42,13 @@ const useStyles = makeStyles((theme) => ({
   },
   inputColor: {
     "& .MuiInput-underline:after": {
-      borderBottom: "2px solid #ffffff",
+      borderBottom: "2px solid black",
     },
     "& .MuiInputBase-root": {
-      color: "white",
+      color: "black",
     },
     "& .MuiFormLabel-root.Mui-focused": {
-      color: "white",
+      color: "black",
     },
   },
   paper: {
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "transparent",
+    backgroundColor: "black",
   },
   form: {
     width: "80%", // Fix IE 11 issue.
@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "transparent",
+    backgroundColor: "black",
     color: "white",
   },
 }));
@@ -121,22 +121,19 @@ export default function SignInSide() {
             square
           >
             <div className={classes.paper}>
+              <Box mt={1} />
               <Avatar className={classes.avatar}>
                 <LockOutlinedIcon />
               </Avatar>
               <Typography
-                style={{ color: "white" }}
+                style={{ color: "black" }}
                 component="h1"
                 variant="h5"
               >
                 Sign in
               </Typography>
 
-              <form
-                style={{ color: "white" }}
-                className={classes.form}
-                noValidate
-              >
+              <form className={classes.form} noValidate>
                 <TextField
                   margin="normal"
                   className={classes.inputColor}
@@ -161,9 +158,9 @@ export default function SignInSide() {
                   onChange={(e) => setLoginPassword(e.target.value)}
                 />
                 <FormControlLabel
-                  style={{ color: "white" }}
+                  style={{ color: "black" }}
                   control={
-                    <Checkbox value="remember" style={{ color: "white" }} />
+                    <Checkbox value="remember" style={{ color: "black" }} />
                   }
                   label="Remember me"
                 />
@@ -177,21 +174,21 @@ export default function SignInSide() {
                 </Button>
                 <Grid container>
                   <Grid item xs>
-                    <Link href="#" style={{ color: "white" }} variant="body2">
+                    <Link href="#" style={{ color: "black" }} variant="body2">
                       Forgot password?
                     </Link>
                   </Grid>
                   <Grid item>
                     <Link
                       href="/signup"
-                      style={{ color: "white" }}
+                      style={{ color: "black" }}
                       variant="body2"
                     >
                       {"Don't have an account? Sign Up"}
                     </Link>
                   </Grid>
                 </Grid>
-                <Box mt={5} />
+                <Box mt={3} />
               </form>
             </div>
           </Grid>
