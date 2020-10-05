@@ -11,6 +11,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 //==============icons================//
+import InstagramIcon from "@material-ui/icons/Instagram";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import YouTubeIcon from "@material-ui/icons/YouTube";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import OndemandVideoOutlinedIcon from "@material-ui/icons/OndemandVideoOutlined";
 import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
@@ -23,151 +26,92 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
-const drawerWidth = 200;
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
-  },
-  gutters: {
-    paddingLeft: "10px",
-  },
-
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    backgroundColor: "#4a6b3d",
-  },
-  appBarShift: {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
+    flexGrow: 1,
   },
   menuButton: {
-    marginRight: 36,
-  },
-  hide: {
-    display: "none",
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: "nowrap",
-  },
-  drawerOpen: {
-    width: drawerWidth,
-    color: "white",
-    backgroundColor: "transparent",
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerClose: {
-    backgroundColor: "transparent",
-    color: "white",
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    overflowX: "hidden",
-    width: theme.spacing(7) + 1,
-    [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9) + 1,
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up("md")]: {
+      display: "none",
     },
   },
-  toolbar: {
-    backgroundColor: "#4a6b3d",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
+  navButton: {
+    marginRight: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+  navIcon: {
+    marginRight: theme.spacing(3),
     color: "white",
   },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-  toolbarBtn: {
-    color: "white",
+  title: {
+    alignContent: "center",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
 }));
 
-function ListItemLink(props) {
-  return <ListItem classes="classes" button component="a" {...props} />;
-}
-
-export default function MiniDrawer() {
+export default function ButtonAppBar() {
   const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
+      <AppBar position="static">
         <Toolbar>
-          <IconButton
+          <Button href="/sharespot">
+            <InstagramIcon className={classes.navIcon} />
+          </Button>
+          <Button>
+            <FacebookIcon className={classes.navIcon} />
+          </Button>
+          <Button>
+            <YouTubeIcon className={classes.navIcon} />
+          </Button>
+
+          <Typography variant="h6" className={classes.title}>
+            SpotShredder
+          </Typography>
+
+          <Button
+            className={classes.navButton}
+            href="/sharespot"
             color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
+          >
+            Videos
+          </Button>
+          <Button
+            className={classes.navButton}
+            href="/sharespot"
+            color="inherit"
+          >
+            Add Spot
+          </Button>
+          <Button
+            className={classes.navButton}
+            href="/sharespot"
+            color="inherit"
+          >
+            Spots
+          </Button>
+
+          <IconButton
             edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
           >
             <MenuIcon />
           </IconButton>
-          <Button color="inherit" href="/" variant="h6" noWrap>
-            Spot Shredder
-          </Button>
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton style={{ color: "white" }} onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </div>
-        <Divider />
-        <List component="nav" aria-label="main mailbox folders">
+    </div>
+  );
+}
+
+{
+  /* <List component="nav" aria-label="main mailbox folders">
           <ListItem className={classes.gutters} button>
             <ListItemLink href="/">
               <ListItemIcon className={classes.toolbarBtn}>
@@ -213,8 +157,5 @@ export default function MiniDrawer() {
           <ListItemLink href="/news">
             <ListItemText primary="News" />
           </ListItemLink>
-        </List>
-      </Drawer>
-    </div>
-  );
+        </List> */
 }

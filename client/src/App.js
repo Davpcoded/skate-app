@@ -14,7 +14,6 @@ function App() {
   return (
     <Router>
       <div style={{ backgroundColor: "#4a6b3d" }}>
-        <Nav />
         <Switch>
           <Route exact path="/">
             <Home />

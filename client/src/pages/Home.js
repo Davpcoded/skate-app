@@ -16,6 +16,7 @@ import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import AboutSection from "../components/AboutBanner";
+import Nav from "../components/Nav";
 
 function Copyright() {
   return (
@@ -103,92 +104,106 @@ export default function SignInSide() {
   };
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid
-        item
-        xs={false}
-        sm={4}
-        md={7}
-        component={Paper}
-        elevation={6}
-        square
-        className={classes.image}
-      />
-      <Grid
-        item
-        xs={12}
-        sm={8}
-        md={5}
-        className={classes.gridColor}
-        component={Paper}
-        elevation={6}
-        square
-      >
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography style={{ color: "white" }} component="h1" variant="h5">
-            Sign in
-          </Typography>
+    <Grid>
+      <Nav />
+      <Grid container component="main" className={classes.root}>
+        <CssBaseline />
 
-          <form style={{ color: "white" }} className={classes.form} noValidate>
-            <TextField
-              margin="normal"
-              className={classes.inputColor}
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              onChange={(e) => setLoginEmail(e.target.value)}
-            />
-            <TextField
-              margin="normal"
-              className={classes.inputColor}
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="off"
-              onChange={(e) => setLoginPassword(e.target.value)}
-            />
-            <FormControlLabel
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          component={Paper}
+          elevation={6}
+          square
+          className={classes.image}
+        />
+        <Grid
+          item
+          xs={12}
+          sm={8}
+          md={5}
+          className={classes.gridColor}
+          component={Paper}
+          elevation={6}
+          square
+        >
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography style={{ color: "white" }} component="h1" variant="h5">
+              Sign in
+            </Typography>
+
+            <form
               style={{ color: "white" }}
-              control={<Checkbox value="remember" style={{ color: "white" }} />}
-              label="Remember me"
-            />
-            <Button
-              fullWidth
-              variant="contained"
-              onClick={login}
-              className={classes.submit}
+              className={classes.form}
+              noValidate
             >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" style={{ color: "white" }} variant="body2">
-                  Forgot password?
-                </Link>
+              <TextField
+                margin="normal"
+                className={classes.inputColor}
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                onChange={(e) => setLoginEmail(e.target.value)}
+              />
+              <TextField
+                margin="normal"
+                className={classes.inputColor}
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="off"
+                onChange={(e) => setLoginPassword(e.target.value)}
+              />
+              <FormControlLabel
+                style={{ color: "white" }}
+                control={
+                  <Checkbox value="remember" style={{ color: "white" }} />
+                }
+                label="Remember me"
+              />
+              <Button
+                fullWidth
+                variant="contained"
+                onClick={login}
+                className={classes.submit}
+              >
+                Sign In
+              </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" style={{ color: "white" }} variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link
+                    href="/signup"
+                    style={{ color: "white" }}
+                    variant="body2"
+                  >
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
               </Grid>
-              <Grid item>
-                <Link href="/signup" style={{ color: "white" }} variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
-        </div>
+              <Box mt={5}>
+                <Copyright />
+              </Box>
+            </form>
+          </div>
+        </Grid>
+        <AboutSection />
       </Grid>
-      <AboutSection />
     </Grid>
   );
 }
