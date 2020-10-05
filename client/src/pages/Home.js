@@ -157,7 +157,7 @@ export default function SignInSide() {
                   id="email"
                   label="Email Address"
                   name="email"
-                  autoComplete="email"
+                  autoComplete="off"
                   onChange={(e) => setLoginEmail(e.target.value)}
                 />
                 <TextField
