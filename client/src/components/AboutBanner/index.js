@@ -4,6 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
+import Cards from "../Cards";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,22 +53,8 @@ export default function AboutBanner() {
   return (
     <Grid container className={classes.root}>
       <CssBaseline />
-      <Grid
-        item
-        xs={12}
-        elevation={6}
-        square
-        component={Paper}
-        className={classes.banner1}
-      >
-        <Typography
-          xs={12}
-          className={classes.bannerText}
-          variant="h4"
-          component="h4"
-        >
-          Skate Nearby Spots
-        </Typography>
+      <Grid item xs={12} elevation={6} square component={Paper}>
+        <Cards />
       </Grid>
 
       <Grid
