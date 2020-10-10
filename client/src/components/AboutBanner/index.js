@@ -9,7 +9,9 @@ import Cards from "../Cards";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
-    marginTop: "8px",
+  },
+  gridBackground: {
+    backgroundColor: "black",
   },
   banner1: {
     backgroundImage: "url(https://source.unsplash.com/hCrmrvERbmk)",
@@ -53,7 +55,14 @@ export default function AboutBanner() {
   return (
     <Grid container className={classes.root}>
       <CssBaseline />
-      <Grid item xs={12} elevation={6} square component={Paper}>
+      <Grid
+        item
+        xs={12}
+        elevation={6}
+        square
+        component={Paper}
+        className={classes.gridBackground}
+      >
         <Cards />
       </Grid>
 

@@ -1,12 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
@@ -14,8 +9,33 @@ const useStyles = makeStyles({
     maxWidth: 345,
     display: "inline-block",
   },
-  media: {
-    height: 140,
+  iphoneImg: {
+    width: "200px",
+    height: "200px",
+  },
+  androidImg: {
+    width: "100px",
+    height: "100px",
+    marginTop: "60px",
+  },
+  skateGif: {
+    width: "200px",
+    height: "200px",
+    marginLeft: "80px",
+    borderRadius: ".5rem",
+  },
+  typography: {
+    color: "white",
+    width: "400px",
+    marginLeft: "50px",
+    marginTop: "20px",
+  },
+  containerMargin: {
+    marginTop: "4%",
+    marginBottom: "4%",
+  },
+  paper: {
+    backgroundColor: "black",
   },
 });
 
@@ -23,111 +43,21 @@ export default function Cards() {
   const classes = useStyles();
 
   return (
-    <Container justify="center">
-      <div>
-        <Card1 />
-        <Card2 />
-        <Card3 />
-      </div>
+    <Container className={classes.containerMargin}>
+      <Grid container spacing={1}>
+        <img className={classes.iphoneImg} src="images/Iphone.png" />
+
+        <img className={classes.androidImg} src="images/appDownload.jpg" />
+
+        <Typography className={classes.typography} variant="body1" gutterBottom>
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+          blanditiis tenetur unde suscipit, quam beatae rerum inventore
+          consectetur, neque doloribus, cupiditate numquam dignissimos laborum
+          fugiat deleniti? Eum quasi quidem quibusdam.
+        </Typography>
+
+        <img className={classes.skateGif} src="images/skateGif.gif" />
+      </Grid>
     </Container>
-  );
-}
-
-function Card1() {
-  const classes = useStyles();
-
-  return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
-  );
-}
-
-function Card2() {
-  const classes = useStyles();
-
-  return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
-  );
-}
-
-function Card3() {
-  const classes = useStyles();
-
-  return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
   );
 }
