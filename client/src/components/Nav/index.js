@@ -72,7 +72,13 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar style={{ background: "transparent" }} position="static">
+      <AppBar
+        style={{ background: "transparent" }}
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+        position="static"
+      >
         <Toolbar>
           <Button className={classes.navIcon} href="/sharespot">
             <InstagramIcon className={classes.navIcon} />
@@ -112,7 +118,8 @@ export default function ButtonAppBar() {
 
           <IconButton
             edge="start"
-            className={classes.menuButton}
+            className={clsx(classes.menuButton, open && classes.hide)}
+            onClick={handleDrawerOpen}
             color="inherit"
             aria-label="menu"
           >
