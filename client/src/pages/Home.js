@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   image: {
     backgroundImage: "url(https://source.unsplash.com/Sj87XsPs4b4)",
     backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
     height: "100vh",
     width: "100%",
     backgroundColor:

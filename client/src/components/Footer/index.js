@@ -29,10 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   footer: {
-    top: "100vh",
-    bottom: "100px",
     padding: "24px 16px",
-    position: "relative",
     backgroundColor: "#4a6b3d",
   },
 }));

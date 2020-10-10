@@ -21,7 +21,8 @@ const useStyles = makeStyles({
   skateGif: {
     width: "200px",
     height: "200px",
-    marginLeft: "80px",
+    marginLeft: "auto",
+    marginRight: "auto",
     borderRadius: ".5rem",
   },
   typography: {
@@ -56,7 +57,10 @@ export default function Cards() {
           fugiat deleniti? Eum quasi quidem quibusdam.
         </Typography>
 
-        <img className={classes.skateGif} src="images/skateGif.gif" />
+        <img
+          className={classes.skateGif}
+          src="https://media.giphy.com/media/l0He2rFiLXMnhzhSg/giphy.gif"
+        />
       </Grid>
     </Container>
   );
