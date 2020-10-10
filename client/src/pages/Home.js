@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   gridColor: {
     backgroundColor: "#dbdbdb",
+    marginTop: "20vh",
     marginLeft: "auto",
     marginRight: "auto",
     borderRadius: ".5rem",
@@ -51,6 +52,11 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .MuiFormLabel-root.Mui-focused": {
       color: "black",
+    },
+  },
+  navBackground: {
+    "& .MuiAppBar-colorPrimary": {
+      backgroundColor: "transparent",
     },
   },
   paper: {
@@ -78,6 +84,7 @@ export default function SignInSide() {
   const classes = useStyles();
   const [loginEmail, setLoginEmail] = React.useState("");
   const [loginPassword, setLoginPassword] = React.useState("");
+
   const history = useHistory();
 
   const login = () => {

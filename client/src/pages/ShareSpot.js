@@ -15,6 +15,7 @@ import Search from "../components/CustomizedInputBase";
 import Locate from "../components/GetCurrentLocation";
 import ShareSpotForm from "../components/ShareSpotForm";
 import { getLatLng } from "use-places-autocomplete";
+import Nav from "../components/Nav";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -70,7 +71,9 @@ export default function ShareSpot() {
   if (!isLoaded) return "Loading...";
 
   return (
-    <div>
+    <div style={{ backgroundColor: "black" }}>
+      <Nav />
+
       <GoogleMap
         id="map"
         mapContainerStyle={mapContainerStyle}

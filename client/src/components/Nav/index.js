@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   appBar: {
-    backgroundColor: "transparent",
+    height: "60px",
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -96,6 +96,7 @@ export default function PersistentDrawerLeft() {
       <CssBaseline />
       <AppBar
         position="fixed"
+        style={{ backgroundColor: "transparent" }}
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
