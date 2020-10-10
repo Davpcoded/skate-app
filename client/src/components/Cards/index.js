@@ -51,10 +51,15 @@ export default function Cards() {
         <img className={classes.androidImg} src="images/appDownload.jpg" />
 
         <Typography className={classes.typography} variant="body1" gutterBottom>
-          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-          blanditiis tenetur unde suscipit, quam beatae rerum inventore
-          consectetur, neque doloribus, cupiditate numquam dignissimos laborum
-          fugiat deleniti? Eum quasi quidem quibusdam.
+          Spot-Shredder lets you save and share spots worldwide with other
+          skaters. Our main vision is to make accessible skate-able locations
+          near you and to build a community with different categories to focus
+          each discipline of this loved art.
+          <br />
+          Spot-Shredder main Website is Mobile Friendly. You can also download
+          the App on your device.
+          <br />
+          Have Fun !!
         </Typography>
 
         <img
