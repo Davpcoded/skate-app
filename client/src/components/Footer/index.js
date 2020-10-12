@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     left: 0,
     right: 0,
-    bottom: "-100vh",
+    bottom: "-100%",
     height: "60px",
     width: "100%",
     color: "white",

@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "black",
   },
   banner2: {
-    backgroundAttachment: "fixed",
     backgroundImage: "url(https://source.unsplash.com/sTTgqmXye8s)",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
