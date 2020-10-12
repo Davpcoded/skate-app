@@ -15,8 +15,14 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import Home from "@material-ui/icons/Home";
+import OndemandVideo from "@material-ui/icons/OndemandVideo";
+import AddLocation from "@material-ui/icons/AddLocation";
+import Room from "@material-ui/icons/Room";
+import Button from "@material-ui/core/Button";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import YouTubeIcon from "@material-ui/icons/YouTube";
 
 const drawerWidth = 240;
 
@@ -51,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: "#dbdbdb",
   },
   drawerHeader: {
     display: "flex",
@@ -59,6 +66,9 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
+  },
+  buttonWidth: {
+    width: "100%",
   },
   content: {
     flexGrow: 1,
@@ -112,8 +122,11 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            SpotShredder
           </Typography>
+          <InstagramIcon />
+          <FacebookIcon />
+          <YouTubeIcon />
         </Toolbar>
       </AppBar>
       <Drawer
@@ -136,76 +149,54 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+          <ListItem className={classes.gutters} button>
+            <Button className={classes.buttonWidth} href="/">
+              <ListItemIcon className={classes.toolbarBtn}>
+                <Home />
               </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <ListItemText primary="Home" />
+            </Button>
+          </ListItem>
+
+          <ListItem className={classes.gutters} button>
+            <Button className={classes.buttonWidth} href="/videos">
+              <ListItemIcon className={classes.toolbarBtn}>
+                <OndemandVideo />
               </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+              <ListItemText primary="Videos" />
+            </Button>
+          </ListItem>
+
+          <ListItem className={classes.gutters} button>
+            <Button className={classes.buttonWidth} href="/spots">
+              <ListItemIcon className={classes.toolbarBtn}>
+                <Room />
+              </ListItemIcon>
+              <ListItemText primary="Spots" />
+            </Button>
+          </ListItem>
+
+          <ListItem className={classes.gutters} button>
+            <Button className={classes.buttonWidth} href="/sharespot">
+              <ListItemIcon className={classes.toolbarBtn}>
+                <AddLocation />
+              </ListItemIcon>
+              <ListItemText primary="Add Spots" />
+            </Button>
+          </ListItem>
+
+          <Divider />
+          <List component="nav" aria-label="secondary mailbox folders">
+            <Button className={classes.buttonWidth} href="/signup">
+              <ListItemText primary="Signup" />
+            </Button>
+
+            <Button className={classes.buttonWidth} href="/news">
+              <ListItemText primary="News" />
+            </Button>
+          </List>
         </List>
       </Drawer>
     </div>
   );
-}
-{
-  /* <List component="nav" aria-label="main mailbox folders">
-          <ListItem className={classes.gutters} button>
-            <ListItemLink href="/">
-              <ListItemIcon className={classes.toolbarBtn}>
-                <HomeOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItemLink>
-          </ListItem>
-
-          <ListItem className={classes.gutters} button>
-            <ListItemLink href="/videos">
-              <ListItemIcon className={classes.toolbarBtn}>
-                <OndemandVideoOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Videos" />
-            </ListItemLink>
-          </ListItem>
-
-          <ListItem className={classes.gutters} button>
-            <ListItemLink href="/spots">
-              <ListItemIcon className={classes.toolbarBtn}>
-                <RoomOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Spots" />
-            </ListItemLink>
-          </ListItem>
-
-          <ListItem className={classes.gutters} button>
-            <ListItemLink href="/sharespot">
-              <ListItemIcon className={classes.toolbarBtn}>
-                <AddLocationOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Add Spots" />
-            </ListItemLink>
-          </ListItem>
-        </List>
-        <Divider />
-        <List component="nav" aria-label="secondary mailbox folders">
-          <ListItemLink href="/signup">
-            <ListItemText primary="Signup" />
-          </ListItemLink>
-
-          <ListItemLink href="/news">
-            <ListItemText primary="News" />
-          </ListItemLink>
-        </List> */
 }

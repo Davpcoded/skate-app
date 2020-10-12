@@ -6,8 +6,9 @@ import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 
 function Copyright() {
+  const classes = useStyles();
   return (
-    <Typography variant="body2" color="textSecondary">
+    <Typography variant="body2" className={classes.footerText}>
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
@@ -39,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     backgroundColor: "black",
   },
+  footerText: {
+    color: "white",
+    marginTop: "20px",
+  },
 }));
 
 export default function Footer() {
@@ -48,8 +53,8 @@ export default function Footer() {
     <div className={classes.root}>
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography variant="body1">
-            My sticky footer can be found here.
+          <Typography style={{ color: "white" }} variant="body1">
+            {Copyright}
           </Typography>
           <Copyright />
         </Container>
