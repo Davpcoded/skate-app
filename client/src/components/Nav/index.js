@@ -86,6 +86,9 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
+  toolbarBtn: {
+    color: "black",
+  },
 }));
 
 export default function PersistentDrawerLeft() {
