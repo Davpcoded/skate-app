@@ -13,14 +13,8 @@ const useStyles = makeStyles((theme) => ({
   gridBackground: {
     backgroundColor: "black",
   },
-  banner1: {
-    backgroundImage: "url(https://source.unsplash.com/hCrmrvERbmk)",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    height: "50vh",
-  },
   banner2: {
+    backgroundAttachment: "fixed",
     backgroundImage: "url(https://source.unsplash.com/sTTgqmXye8s)",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
