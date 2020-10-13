@@ -48,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  navIcons: {
+    marginRight: theme.spacing(2),
+  },
   hide: {
     display: "none",
   },
@@ -124,12 +127,10 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            SpotShredder
-          </Typography>
-          <InstagramIcon />
-          <FacebookIcon />
-          <YouTubeIcon />
+          <img src="images/AppLogoTransparent.png" />
+          <InstagramIcon className={classes.navIcons} />
+          <FacebookIcon className={classes.navIcons} />
+          <YouTubeIcon className={classes.navIcons} />
         </Toolbar>
       </AppBar>
       <Drawer
