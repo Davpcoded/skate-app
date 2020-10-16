@@ -23,19 +23,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh",
   },
   main: {
     marginTop: theme.spacing(8),
     marginBottom: theme.spacing(2),
   },
   footer: {
-    position: "absolute",
     left: 0,
-    right: 0,
-    bottom: "-100%",
-    height: "60px",
-    width: "100%",
+    bottom: 0,
+    width: "100vw",
     color: "white",
     textAlign: "center",
     backgroundColor: "black",
@@ -51,7 +47,7 @@ export default function Footer() {
 
   return (
     <div className={classes.root}>
-      <footer className={classes.footer}>
+      <footer pos className={classes.footer}>
         <Container maxWidth="sm">
           <Typography style={{ color: "white" }} variant="body1">
             {Copyright}

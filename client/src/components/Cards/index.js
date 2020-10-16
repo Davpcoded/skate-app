@@ -103,7 +103,7 @@ export default function Cards() {
 
         <img
           className={classes.skateGif}
-          src="https://i.pinimg.com/originals/77/d7/81/77d78134db72b56aa1f07c7ed64c0b6a.gif"
+          src="https://i.pinimg.com/originals/b6/5b/11/b65b11a0b2fe794688f5828e6700b196.gif"
         />
       </Grid>
     </Container>

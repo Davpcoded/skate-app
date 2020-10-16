@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Cards from "../Cards";
+import Footer from "../Footer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -76,6 +77,7 @@ export default function AboutBanner() {
           Explore Your City
         </Typography>
       </Grid>
+      <Footer />
     </Grid>
   );
 }

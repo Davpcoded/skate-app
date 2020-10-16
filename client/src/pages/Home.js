@@ -17,11 +17,12 @@ import { useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import AboutBanner from "../components/AboutBanner";
 import Nav from "../components/Nav";
-import Footer from "../components/Footer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
+    width: "100vw",
+    overflowX: "hidden",
   },
   image: {
     backgroundImage: "url(https://source.unsplash.com/Sj87XsPs4b4)",
@@ -204,7 +205,6 @@ export default function SignInSide() {
         </Grid>
 
         <AboutBanner />
-        <Footer />
       </Grid>
     </Grid>
   );
