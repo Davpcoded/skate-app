@@ -2,7 +2,10 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import AppleIcon from "@material-ui/icons/Apple";
+import AndroidIcon from "@material-ui/icons/Android";
 
 const useStyles = makeStyles({
   root: {
@@ -10,8 +13,10 @@ const useStyles = makeStyles({
     display: "inline-block",
   },
   iphoneImg: {
-    width: "200px",
+    width: "300px",
     height: "200px",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   androidImg: {
     width: "100px",
@@ -38,6 +43,17 @@ const useStyles = makeStyles({
   paper: {
     backgroundColor: "black",
   },
+  descriptionText: {
+    color: "white",
+    marginTop: "50px",
+  },
+  iconColor: {
+    color: "black",
+  },
+  appDownloadBtn: {
+    marginLeft: "10px",
+    width: "180px",
+  },
 });
 
 export default function Cards() {
@@ -46,10 +62,33 @@ export default function Cards() {
   return (
     <Container className={classes.containerMargin}>
       <Grid container spacing={1}>
-        <img className={classes.iphoneImg} src="images/Iphone.png" />
+        <Typography className={classes.typography} variant="h3">
+          Spot Shredder
+          <Typography style={{ color: "white" }} variant="body1">
+            Explore your city, find your favorite spot to shred
+          </Typography>
+          <Typography className={classes.descriptionText} variant="body1">
+            Use our Web App or download the Mobile App on
+          </Typography>
+          <Button
+            variant="contained"
+            className={classes.appDownloadBtn}
+            startIcon={<AppleIcon className={classes.iconColor} />}
+          >
+            App Store
+          </Button>
+          <Button
+            variant="contained"
+            className={classes.appDownloadBtn}
+            startIcon={<AndroidIcon className={classes.iconColor} />}
+          >
+            Google Play
+          </Button>
+        </Typography>
 
-        <img className={classes.androidImg} src="images/appDownload.jpg" />
-
+        <img className={classes.iphoneImg} src="images/devices.png" />
+      </Grid>
+      <Grid container spacing={1}>
         <Typography className={classes.typography} variant="body1" gutterBottom>
           Spot-Shredder lets you save and share spots worldwide with other
           skaters. Our main vision is to make accessible skate-able locations
@@ -64,7 +103,7 @@ export default function Cards() {
 
         <img
           className={classes.skateGif}
-          src="https://media.giphy.com/media/l0He2rFiLXMnhzhSg/giphy.gif"
+          src="https://i.pinimg.com/originals/77/d7/81/77d78134db72b56aa1f07c7ed64c0b6a.gif"
         />
       </Grid>
     </Container>

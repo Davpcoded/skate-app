@@ -15,7 +15,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
-import AboutSection from "../components/AboutBanner";
+import AboutBanner from "../components/AboutBanner";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
@@ -203,9 +203,9 @@ export default function SignInSide() {
           </Grid>
         </Grid>
 
-        <AboutSection />
+        <AboutBanner />
+        <Footer />
       </Grid>
-      <Footer />
     </Grid>
   );
 }
