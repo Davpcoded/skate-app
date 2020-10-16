@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     marginTop: "60px",
   },
   skateGif: {
-    width: "200px",
+    width: "250px",
     height: "200px",
     marginLeft: "auto",
     marginRight: "auto",

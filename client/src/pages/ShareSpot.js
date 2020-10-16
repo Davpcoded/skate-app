@@ -72,8 +72,6 @@ export default function ShareSpot() {
 
   return (
     <div style={{ backgroundColor: "black" }}>
-      <Nav />
-
       <GoogleMap
         id="map"
         mapContainerStyle={mapContainerStyle}

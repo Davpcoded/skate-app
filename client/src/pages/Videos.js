@@ -1,4 +1,6 @@
 import React from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import YouTube from "react-youtube";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -9,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     marginTop: "8vh",
+    background: "black",
+  },
+  nav: {
+    backgroundColor: "black",
   },
   paper: {
     padding: theme.spacing(2),
@@ -79,6 +85,7 @@ export default function Videos() {
           </Grid>
         </Grid>
       </Container>
+      <Footer />
     </div>
   );
 }

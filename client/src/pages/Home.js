@@ -119,7 +119,6 @@ export default function SignInSide() {
           square
           className={classes.image}
         >
-          <Nav />
           <Grid
             item
             xs={12}

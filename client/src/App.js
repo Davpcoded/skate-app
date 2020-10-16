@@ -6,12 +6,14 @@ import Videos from "./pages/Videos";
 import News from "./pages/News";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
+import Nav from "./components/Nav";
 import "./App.css";
 
 function App() {
   return (
     <Router>
-      <div>
+      <div style={{ backgroundColor: "black" }}>
+        <Nav />
         <Switch>
           <Route exact path="/">
             <Home />
