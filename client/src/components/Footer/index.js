@@ -47,13 +47,19 @@ export default function Footer() {
 
   return (
     <div className={classes.root}>
-      <footer pos className={classes.footer}>
-        <Container maxWidth="sm">
-          <Typography style={{ color: "white" }} variant="body1">
-            {Copyright}
-          </Typography>
-          <Copyright />
-        </Container>
+      <footer className={classes.footer}>
+        <Typography variant="h6" align="center" gutterBottom>
+          Footer
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          align="center"
+          style={{ color: "white" }}
+          component="p"
+        >
+          Something here to give the footer a purpose!
+        </Typography>
+        <Copyright />
       </footer>
     </div>
   );

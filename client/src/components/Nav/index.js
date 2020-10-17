@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     height: "60px",
-    width: "100vw",
+    width: "100%",
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
